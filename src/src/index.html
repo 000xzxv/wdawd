@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LARPERS GUI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #10131c;
+      color: #eef2ff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      padding: 24px 32px;
+      background: #191e2b;
+      border-bottom: 1px solid #30384c;
+    }
+    h1 { margin: 0; color: #8b9cff; }
+    main { padding: 30px; }
+    .panel {
+      background: #191e2b;
+      border: 1px solid #30384c;
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    input, button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #3b4560;
+      margin: 5px;
+    }
+    input {
+      background: #10131c;
+      color: white;
+    }
+    button {
+      background: #7185ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover { background: #8999ff; }
+    #logs {
+      background: #0b0e15;
+      padding: 15px;
+      min-height: 100px;
+      border-radius: 8px;
+      color: #9ee6b0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LARPERS GUI</h1>
+    <p>Minecraft Bot Manager</p>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>Połączenie z serwerem</h2>
+      <input id="host" value="craftcube.pl" placeholder="Adres serwera">
+      <input id="port" value="25565" type="number" placeholder="Port">
+      <input id="username" placeholder="Nick bota">
+      <button id="connect">Połącz</button>
+      <button id="disconnect">Rozłącz</button>
+    </section>
+    <section class="panel">
+      <h2>Sterowanie</h2>
+      <p>WASD – ruch | Spacja – skok</p>
+      <button data-move="forward">W</button>
+      <button data-move="left">A</button>
+      <button data-move="back">S</button>
+      <button data-move="right">D</button>
+      <button data-move="jump">Skok</button>
+      <p>Sterowanie będzie dostępne po dodaniu modułu bota.</p>
+    </section>
+    <section class="panel">
+      <h2>Logi</h2>
+      <div id="logs">LARPERS GUI uruchomiony.</div>
+    </section>
+  </main>
+</body>
+</html>
