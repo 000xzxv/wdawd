@@ -1,0 +1,34 @@
+
+name: Build LARPERS GUI EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Pobierz projekt
+        uses: actions/checkout@v4
+
+      - name: Skonfiguruj Node.js na serwerze GitHub
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Zainstaluj zależności
+        run: npm install
+
+      - name: Zbuduj EXE
+        run: npx electron-builder --win portable --x64
+
+      - name: Udostępnij EXE do pobrania
+        uses: actions/upload-artifact@v4
+        with:
+          name: LARPERS-GUI-Windows
+          path: dist/*.exe
+          if-no-files-found: error
